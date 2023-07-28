@@ -1,7 +1,5 @@
 import"./FooterStyles.css";
-
 import React from 'react';
-
 import { FaHome, 
     FaPhone, 
     FaMailBulk, 

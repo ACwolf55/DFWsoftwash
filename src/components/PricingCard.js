@@ -32,12 +32,12 @@ return (
         <div className="card">
             <h3>- Looking to get Hired?? -</h3>
             <span className="bar"></span>
-            <p className="btc">$ 0</p>
+            <p className="btc">$0.15 PSF</p>
             <p>- Looking for self Motivated hard working people -</p>
             <p>- Our team Will respond as soon as we can -</p>
             <p>- Call or email! -</p>
             <p>- Send your resume via Link! -</p>
-            <Link to="/contact" className="btn">BOOK NOW</Link>
+            <Link to="/contact" className="btn">CONTACT NOW</Link>
         </div>
     </div>
 )

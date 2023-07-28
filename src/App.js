@@ -6,6 +6,9 @@ import Contact from "./routes/Contact"
 import About from "./routes/About"
 
 import { Route, Routes } from "react-router-dom";
+import App2 from "./routes/RegisterForm"
+import Login from "./components/Login"
+
 
 function App() {
   return (
@@ -15,6 +18,8 @@ function App() {
       <Route path="/Project" element={<Project />} />
       <Route path="/Contact" element={<Contact />} />
       <Route path="/About" element={<About />} />
+      <Route path="/App2" element={<App2 />} />
+      <Route path="/Login" element={<Login />} />
     </Routes>
     </>
   );

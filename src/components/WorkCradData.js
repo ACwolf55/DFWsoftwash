@@ -6,19 +6,19 @@ const projectCardData = [
     {
         imgsrc: pro1,
         title: "600SQFt Job in Allen",
-        text: "skdjfsdhfserghfuikhseriukhguisefhguisehruighseiurg",
-        view: "url.com"
+        text: "skdjfsdhfserghf",
+        view: "uel.com"
     },
     {
         imgsrc: pro2,
         title: "250SQFT driveway Job",
-        text: "skdjfsdhfserghfuikhseriukhguisefhguisehruighseiurg",
+        text: "skdjfsdhfserghfuikhs",
         view: "url.com"
     },
     {
         imgsrc: pro3,
         title: "900SQFT Job in Allen",
-        text: "skdjfsdhfserghfuikhseriukhguisefhguisehruighseiurg",
+        text: "skdjfsdhfserghfuikhse",
         view: "url.com"
     },
 ];
