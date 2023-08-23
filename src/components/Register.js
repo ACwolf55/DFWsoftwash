@@ -48,7 +48,6 @@ const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // if button enabled with JS hack
         const v1 = USER_REGEX.test(user);
         const v2 = PWD_REGEX.test(pwd);
         if (!v1 || !v2) {
@@ -70,8 +69,6 @@ const Register = () => {
             console.log(response?.accessToken);
             console.log(JSON.stringify(response))
             setSuccess(true);
-            //clear state and controlled inputs
-            //need value attrib on inputs for this
             setUser('');
             setPwd('');
             setMatchPwd('');
@@ -83,7 +80,7 @@ const Register = () => {
             } else {
                 setErrMsg('Registration Failed')
             }
-            errRef.current.focus();
+            // errRef.current.focus();
         }
     }
 
@@ -155,7 +152,7 @@ return (
 
 
                         <label htmlFor="confirm_pwd">
-                            Confirm Password:
+                            PleaseConfirm Password:
                             <FontAwesomeIcon icon={faCheck} className={validMatch && matchPwd ? "valid" : "hide"} />
                             <FontAwesomeIcon icon={faTimes} className={validMatch || !matchPwd ? "hide" : "invalid"} />
                         </label>
@@ -172,7 +169,7 @@ return (
                         />
                         <p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}>
                             <FontAwesomeIcon icon={faInfoCircle} />
-                            Must match the first password input field.
+                            Needs to match the first password input field.
                         </p>
 
                         <button disabled={!validName || !validPwd || !validMatch ? true : false}>Sign Up</button>

@@ -16,7 +16,7 @@ ReactDOM.render(
     <Navbar/>
     </AuthProvider>
 </React.StrictMode>,
-document.getElementById('root')
+// document.getElementById('root')
 );
 
 
