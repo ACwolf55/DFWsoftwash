@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import"./LoginRegister.css";
 import React from "react";
 import axios from '../routes/api/axios';
-const LOGIN_URL = '/auth';
+// const LOGIN_URL = '/auth';
 
 
 function Login() {
@@ -25,36 +25,41 @@ function Login() {
     }, [user, pwd]);
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await axios.post(LOGIN_URL,
-                JSON.stringify({ user, pwd }),
-                {
-                    headers: { 'Content-Type': 'application/json' },
-                    withCredentials: true
-                }
-            );
-            console.log(JSON.stringify(response?.data));
-            //console.log(JSON.stringify(response));
-            const accessToken = response?.data?.accessToken;
-            const roles = response?.data?.roles;
-            setAuth({ user, pwd, roles, accessToken });
-            setUser('');
-            setPwd('');
-            setSuccess(true);
-        } catch (err) {
-            if (!err?.response) {
-                setErrMsg('No Server Response');
-            } else if (err.response?.status === 400) {
-                setErrMsg('Missing Username or Password');
-            } else if (err.response?.status === 401) {
-                setErrMsg('Unauthorized');
-            } else {
-                setErrMsg('Login Failed');
-            }
-            errRef.current.focus();
+        e.preventDefault()
+        axios.post("/login", { user, pwd }).then((res) => {
+            console.log(res.data)
+          }).catch((err)=> alert(err.response.request.response))
         }
-    };
+        // e.preventDefault();
+        // try {
+        //     const response = await axios.post('/login',
+        //         JSON.stringify({ user, pwd }),
+        //         {
+        //             headers: { 'Content-Type': 'application/json' },
+        //             withCredentials: true
+        //         }
+        //     );
+        //     console.log(JSON.stringify(response?.data));
+        //     //console.log(JSON.stringify(response));
+        //     const accessToken = response?.data?.accessToken;
+        //     const roles = response?.data?.roles;
+        //     setAuth({ user, pwd, roles, accessToken });
+        //     setUser('');
+        //     setPwd('');
+        //     setSuccess(true);
+        // } catch (err) {
+        //     if (!err?.response) {
+        //         setErrMsg('No Server Response');
+        //     } else if (err.response?.status === 400) {
+        //         setErrMsg('Missing Username or Password');
+        //     } else if (err.response?.status === 401) {
+        //         setErrMsg('Unauthorized');
+        //     } else {
+        //         setErrMsg('Login Failed');
+        //     }
+        //     errRef.current.focus();
+        // }
+
     return (
         <>
             {success ? (

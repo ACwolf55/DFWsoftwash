@@ -11,12 +11,14 @@ let createToken = (username, id) => {
 module.exports = {
   login: async (req, res) => {
     try {
-      let { username, password } = req.body;
-      let foundUsers = await Users.findOne({ where: { username: username } });
+      let { user, pwd } = req.body;
+      console.log(user,pwd)
+      let foundUsers = await Users.findOne({ where: { username: user } });
       if (foundUsers) {
+        console.log('test2')
         const isAuthenticated = bcrypt.compareSync(
-          password,
-          foundUsers.hashedPass
+          pwd,
+          foundUsers.password
         );
         if (isAuthenticated) {
           let token = createToken(
@@ -46,18 +48,18 @@ module.exports = {
   
   register: async (req, res) => {
     try {
-      let { username, password } = req.body;
-      let foundUsers = await Users.findOne({ where: { username: username } });
+      let { user, pwd } = req.body;
+      let foundUsers = await Users.findOne({ where: { username: user} });
       console.log(foundUsers)
       if (foundUsers) {
         res.status(400).send("Username is Taken!");
       } else {
         const salt = bcrypt.genSaltSync(10);
-        const hash = bcrypt.hashSync(password, salt);
+        const hash = bcrypt.hashSync(pwd, salt);
 
-        let newUsers = await User.create({
-          username: username,
-          hashedPass: hash,
+        let newUsers = await Users.create({
+          username: user,
+          password: hash,
         });
         console.log(newUsers)
         let token = createToken(
