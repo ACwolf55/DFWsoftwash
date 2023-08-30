@@ -47,7 +47,9 @@ module.exports = {
   },
   
   register: async (req, res) => {
+    console.log('test1')
     try {
+      console.log('test2')
       let { user, pwd } = req.body;
       let foundUsers = await Users.findOne({ where: { username: user} });
       console.log(foundUsers)

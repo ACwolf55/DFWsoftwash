@@ -28,6 +28,7 @@ function Login() {
         e.preventDefault()
         axios.post("/login", { user, pwd }).then((res) => {
             console.log(res.data)
+        
           }).catch((err)=> alert(err.response.request.response))
         }
         // e.preventDefault();
